@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/kshetrakalavady/static/css/main.bf538fe7.css",
-    "main.js": "/kshetrakalavady/static/js/main.be26bf4c.js",
+    "main.js": "/kshetrakalavady/static/js/main.8b0ca556.js",
     "static/media/HeroImage.jpg": "/kshetrakalavady/static/media/HeroImage.0aac4afcf7602830ea4a.jpg",
     "index.html": "/kshetrakalavady/index.html",
     "main.bf538fe7.css.map": "/kshetrakalavady/static/css/main.bf538fe7.css.map",
-    "main.be26bf4c.js.map": "/kshetrakalavady/static/js/main.be26bf4c.js.map"
+    "main.8b0ca556.js.map": "/kshetrakalavady/static/js/main.8b0ca556.js.map"
   },
   "entrypoints": [
     "static/css/main.bf538fe7.css",
-    "static/js/main.be26bf4c.js"
+    "static/js/main.8b0ca556.js"
   ]
 }
