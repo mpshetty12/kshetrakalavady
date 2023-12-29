@@ -38,19 +38,19 @@ const Navbar = () => {
           <MobileMenu isOpen={isOpen}>
             <MobileLink href="#about" onClick={() => {
               setIsOpen(!isOpen)
-            }}>About</MobileLink>
-            <MobileLink href='#skills' onClick={() => {
+            }}>ಮುಖಪುಟ</MobileLink>
+            <MobileLink href='#Events1' onClick={() => {
               setIsOpen(!isOpen)
-            }}>Skills</MobileLink>
-            <MobileLink href='#experience' onClick={() => {
+            }}>ಕಾರ್ಯಕ್ರಮ</MobileLink>
+            <MobileLink href='#sevas' onClick={() => {
               setIsOpen(!isOpen)
-            }}>Experience</MobileLink>
+            }}>ಸೇವೆಗಳು</MobileLink>
             <MobileLink href='#projects' onClick={() => {
               setIsOpen(!isOpen)
-            }}>Projects</MobileLink>
-            <MobileLink href='#education' onClick={() => {
+            }}>ಫೋಟೋ/ವಿಡಿಯೋಗಳು</MobileLink>
+            <MobileLink href='#contacts' onClick={() => {
               setIsOpen(!isOpen)
-            }}>Education</MobileLink>
+            }}>ಫೋಟೋ/ವಿಡಿಯೋಗಳು</MobileLink>
             <GitHubButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href={Bio.github} target="_blank">Github Profile</GitHubButton>
           </MobileMenu>
         }
