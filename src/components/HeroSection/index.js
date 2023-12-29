@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HeroBgAnimation from '../HeroBgAnimation'
 import { HeroContainer, HeroBg, HeroLeftContainer, Img, HeroRightContainer, HeroInnerContainer, TextLoop, Title, Span, SubTitle,SocialMediaIcons,SocialMediaIcon, ResumeButton } from './HeroStyle'
 import HeroImg from '../../images/HeroImage.jpg'
 import Typewriter from 'typewriter-effect';
 import { Bio } from '../../data/constants';
+import DescriptionDataService from '../../services/descriptions.services'
+
 
 const HeroSection = () => {
+
+    const [descriptions, setDescriptions] = useState([]);
+
+    useEffect(() => {
+        getDescriptions();
+    }, []);
+   
+    const getDescriptions = async() => {
+        const data = await DescriptionDataService.getAllDescriptions();
+        console.log(data.docs)
+        setDescriptions(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+    };
+
     return (
         <div id="about">
             <HeroContainer>
@@ -26,8 +41,14 @@ const HeroSection = () => {
                                 />
                             </Span>
                         </TextLoop>
-                        <SubTitle>{Bio.description}</SubTitle>
-
+                        {
+                            descriptions.map((doc,index) => {
+                            return(
+                                <SubTitle key={doc.id}>
+                                {doc.description}
+                                </SubTitle>
+                            ) 
+                        })}
                     </HeroLeftContainer>
 
                     <HeroRightContainer id="Right">
