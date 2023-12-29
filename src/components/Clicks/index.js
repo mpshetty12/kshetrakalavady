@@ -3,6 +3,8 @@ import {useEffect, useState } from 'react'
 import { Container, Wrapper, Title, Desc, CardContainer, ToggleButtonGroup, ToggleButton, Divider } from './ProjectsStyle'
 import ProjectCard from '../Cards/ProjectCards'
 import GridCard from './GridCard'
+import VideoCard from './VideoCard'
+import SongCard from './SongCard'
 import { Row } from 'antd';
 import ImageDataService from '../../services/images.services'
 
@@ -20,12 +22,6 @@ const Clicks = ({openModal,setOpenModal}) => {
           All images, videos and songs will be here.
         </Desc>
         <ToggleButtonGroup >
-          {toggle === 'all' ?
-            <ToggleButton active value="all" onClick={() => setToggle('all')}>All</ToggleButton>
-            :
-            <ToggleButton value="all" onClick={() => setToggle('all')}>All</ToggleButton>
-          }
-          <Divider />
           {toggle === 'images' ?
             <ToggleButton active value="images" onClick={() => setToggle('images')}>IMAGES</ToggleButton>
             :
@@ -47,7 +43,11 @@ const Clicks = ({openModal,setOpenModal}) => {
 
           <Row gutter={[20, 20]}>
          
-            <GridCard></GridCard>
+            { toggle=== "images" ? <GridCard></GridCard> : ""}
+            { toggle=== "videos" ? <VideoCard></VideoCard> : ""}
+            { toggle=== "songs" ? <SongCard></SongCard> : ""}
+
+
         
           </Row>
      

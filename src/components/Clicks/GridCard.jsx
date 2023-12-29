@@ -20,7 +20,7 @@ const GridCard = () => {
       <div>
          {images.map((doc,index) => {
           return(
-             <img src={doc.imgurl} width="250" height="250"></img>
+             <img src={doc.imgurl} width="250" height="250" align-items="center" justify-content="center"></img>
           ) 
         })}
       </div>
