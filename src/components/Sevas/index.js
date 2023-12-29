@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -8,6 +8,9 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import ExperienceCard from '../Cards/ExperienceCard';
 import { experiences } from '../../data/constants';
+
+import dailysevasService from '../../services/dailysevas.service';
+import visheshasevasServices from '../../services/visheshasevas.services';
 
 const Container = styled.div`
     display: flex;
@@ -62,13 +65,56 @@ const Desc = styled.div`
 
 
 const Sevas = () => {
+    const [DailySeva, setDailySeva] = useState([]);
+
+    useEffect(() => {
+         getDailySevas();
+    }, []);
+   
+    const getDailySevas = async() => {
+    const data = await dailysevasService.getAllDailySevas();
+    console.log(data.docs)
+    setDailySeva(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+  };
+   
+    const [VisheshaSeva, setVisheshaSeva] = useState([]);
+
+    useEffect(() => {
+       getVisheshaSevas();
+    }, []);
+ 
+    const getVisheshaSevas = async() => {
+    const data = await visheshasevasServices.getAllVisheshaSevas();
+    console.log(data.docs)
+    setVisheshaSeva(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+  };
+
     return (
         <Container id="sevas">
             <Wrapper>
                 <Title>SEVAS</Title>
-                <Desc>
-                    My work experience as a software engineer and working on different companies and projects.
-                </Desc>
+            
+                <label>
+                ದೈನಂದಿನ ಸೇವೆಗಳು
+                 <select>
+                    {DailySeva.map((doc,index) => {
+                    return(
+                    <option>{doc.seva}</option>
+                    ) 
+                    })}
+                 </select>
+                </label>
+               
+                <label>
+                ವಿಶೇಷ ಸೇವೆಗಳು
+                 <select>
+                    {VisheshaSeva.map((doc,index) => {
+                    return(
+                    <option>{doc.seva}</option>
+                    ) 
+                    })}
+                 </select>
+                </label>
             
             </Wrapper>
         </Container>
