@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Events } from '../../data/constants'
+// import { Events } from '../../data/constants'
+import EventDataService from '../../services/events.services'
+
 
 const Container = styled.div`
 display: flex;
@@ -119,21 +121,43 @@ const EventImage = styled.img`
 
 
 const Eventss = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    getEvents();
+  }, []);
+   
+  const getEvents = async() => {
+    const data = await EventDataService.getAllEvents();
+    console.log(data.docs)
+    setEvents(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+  };
+
   return (
     <Container id="Events1">
       <Wrapper>
         <Title>ಧಾರ್ಮಿಕ ಕಾರ್ಯಕ್ರಮಗಳು</Title>
-        <Desc>ಈ ತಿಂಗಳ ಧಾರ್ಮಿಕ ಕಾರ್ಯಕ್ರಮಗಳು.
+        <Desc>ಈ ತಿಂಗಳ ಧಾರ್ಮಿಕ ಕಾರ್ಯಕ್ರಮಗಳು. 
         </Desc>
         <EventContainer>
-          {Events.map((Event) => (
+          {/* {Events.map((Event) => (
             <Event1>
               <EventTitle>{Event.title}</EventTitle>
               <EventList>
                 {Event.desc}
               </EventList>
             </Event1>
-          ))}
+          ))} */}
+          {events.map((doc,index) => {
+            return(
+              <Event1 key={doc.id}>
+                <EventTitle>{doc.title}</EventTitle>
+                <EventList>
+                  {doc.desc}
+                </EventList>
+              </Event1>
+            ) 
+          })}
 
         </EventContainer>
       </Wrapper>
