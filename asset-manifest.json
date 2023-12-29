@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/kshetrakalavady/static/css/main.bf538fe7.css",
-    "main.js": "/kshetrakalavady/static/js/main.8b0ca556.js",
-    "static/media/HeroImage.jpg": "/kshetrakalavady/static/media/HeroImage.0aac4afcf7602830ea4a.jpg",
-    "index.html": "/kshetrakalavady/index.html",
-    "main.bf538fe7.css.map": "/kshetrakalavady/static/css/main.bf538fe7.css.map",
-    "main.8b0ca556.js.map": "/kshetrakalavady/static/js/main.8b0ca556.js.map"
+    "main.css": "/marikambakalavady/static/css/main.bf538fe7.css",
+    "main.js": "/marikambakalavady/static/js/main.d71d5a65.js",
+    "static/media/HeroImage.jpg": "/marikambakalavady/static/media/HeroImage.0aac4afcf7602830ea4a.jpg",
+    "index.html": "/marikambakalavady/index.html",
+    "main.bf538fe7.css.map": "/marikambakalavady/static/css/main.bf538fe7.css.map",
+    "main.d71d5a65.js.map": "/marikambakalavady/static/js/main.d71d5a65.js.map"
   },
   "entrypoints": [
     "static/css/main.bf538fe7.css",
-    "static/js/main.8b0ca556.js"
+    "static/js/main.d71d5a65.js"
   ]
 }
